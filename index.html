@@ -2,61 +2,22 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/style.css">
-    <title>Park finder</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/style.css">
+  <title>Park finder</title>
 </head>
 
-<!--                      potential apis for tracking location
-    geolocation api https://radar.com/product/geolocation-api?utm_term=geolocation%20api&utm_campaign=20231206_PSR_ggl_intent-geofencing_lp_txt_amer_ru2&utm_source=google&utm_medium=cpc&hsa_acc=5528249850&hsa_cam=20884674464&hsa_grp=157823538875&hsa_ad=685505262176&hsa_src=g&hsa_tgt=kwd-301485311162&hsa_kw=geolocation%20api&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=CjwKCAjwgpCzBhBhEiwAOSQWQTJhh2oDoOkom-RniQU1DTUHiN9OxauTqnLcTOErsEMNh27uZlPBcRoCZwwQAvD_BwE
-    geocoding api https://www.here.com/developer?cid=Developer_Location-BA-Google-YT-0-Dev-AMER-US-matchtype=p&matchtype=p&gad_source=1 -->
+<!-- to store data in the backend use nodejs. -->
 
-<!--  google maps api
-    Geolocation API: To get the current location of the user.
-    Maps JavaScript API: To embed the map and plot locations.
-    Places API: To provide detailed information about locations. 
-    
-      Mapbox
-    Mapbox GL JS: To embed interactive maps.
-    Mapbox Geocoding API: To convert addresses into geographic coordinates.
-    Mapbox Directions API: To get routing information.
-    
-      Openstreetmap (OSM)
-    Leaflet: A popular open-source JavaScript library for mobile-friendly interactive maps.
-    Overpass API: For querying the OSM data.
+<!-- api for filtering -->
+<!-- https://serpapi.com/playground?q=schools&location=Washington%2C+United+States&gl=us&hl=en -->
 
-      Here api
-    Geocoding & Search API: To get location data.
-    Maps API: To render maps.
-    Positioning API: To get the current location of the user.
-
-    Example Workflow
-  Obtain API Keys: Sign up for the API service you choose and obtain the necessary API keys.
-  Geolocation: Use the Geolocation API (e.g., Google Geolocation API) to get the user's current location.
-  Storing Locations: Store these locations in your backend database.
-  Displaying on Map: Use a mapping library (e.g., Google Maps JavaScript API, Mapbox GL JS, Leaflet) to plot these stored locations on a map.
-    -->
-
-  <!-- to store data in the backend use nodejs. -->
-
+<!-- navbar -->
 <body>
-  
-  <!-- Backend:
-
-      Node.js server: Handles requests to save and retrieve location data.
-      MongoDB: Stores the location data.
-      API Endpoint: /locations for saving and retrieving location data; /search for address search.
-
-       Frontend:
-      
-      Google Maps API: Renders the map and handles geolocation.
-      Geolocation: Uses the browser's geolocation API to track and update the user's current location.
-      Places Library: Allows for address search and plotting on the map.
-      Markers: Markers are added to the map for each tracked location and searched address. -->
-
   <nav class="topnav">
     <a href="#">Search parks</a>
     <a href="#">Google maps</a>
@@ -65,20 +26,26 @@
   <section class="headings">
     <h1>Park finder</h1>
     <p>Searching for the park that we cant find</p>
+    <a href="https://ofm.wa.gov/sites/default/files/public/dataresearch/pop/geographic/maps/cbsa/wa_omb_2018_statistical_areas.pdf">link
+      to metropolitan area</a>
     <br>
     <h4>Placeholder image for the park</h4>
-    <img src="https://untappedcities.com/wp-content/uploads/2018/09/central-park-aerial-untapped-cities-flynyon.jpg" alt="placeholder image of a park" width="500" height="300"> 
+    <img src="https://untappedcities.com/wp-content/uploads/2018/09/central-park-aerial-untapped-cities-flynyon.jpg"
+      alt="placeholder image of a park" width="500" height="300">
+    <img src="https://www.501commons.org/images/washington-state-regions/image"
+      alt="image of statistical areas" width="500" height="300">
   </section>
 
-  <!-- search engine -->
-  <div class="container">
-    <h1>Search Engine</h1>
-    <form id="searchForm">
-        <input type="text" id="query" placeholder="Enter search term" required>
-        <button type="submit">Search</button>
-    </form>
-    <div id="results"></div>
-</div>
+  <div class="input-group searchbar">
+    <input type="search" id="searchInput" class="form-control rounded" placeholder="Search" aria-label="Search"
+      aria-describedby="search-addon" />
+    <button type="button" class="btn btn-outline-primary" id="searchbtn" data-mdb-ripple-init>Search</button>
+  </div>
+  <div class="content" id="content">
+    <!-- Content will be dynamically populated -->
+  </div>
 
-
+  <script src="./assets/script.js"></script>
 </body>
+
+</html>
